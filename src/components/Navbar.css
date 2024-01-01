@@ -18,6 +18,7 @@ nav{
 
 .svgDiv {
     padding: 12px;
+    cursor: pointer;
 }
 
 svg {

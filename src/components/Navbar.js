@@ -3,11 +3,20 @@ import './Navbar.css';
 import loadingGif from '../loadingGif-unscreen.gif'
 import { useNavigate, Link } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Navbar(props) {
   let navigate = useNavigate();
   const handleLogout = ()=>{
     localStorage.removeItem('token');
     navigate("/login");
+  }
+  const handleSvgCLick = ()=>{
+    if (props.sidebarVisible){
+      props.setSidebarVisible(false);
+      console.log(props.sidebarVisible)
+    } else {
+      props.setSidebarVisible(true);
+      console.log(props.sidebarVisible)
+    }
   }
   return (
     <>
@@ -15,7 +24,7 @@ export default function Navbar() {
         <nav className="navbar fixed-top">
           <div className="container-fluid d-flex justify-content-between">
             <div className='d-flex align-items-center'>
-              <div className='svgDiv'>
+              <div onClick={handleSvgCLick} className='svgDiv'>
                 <svg fill="#FFFFFFDE">
                   <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
                 </svg>
