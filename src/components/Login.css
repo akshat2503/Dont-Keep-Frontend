@@ -1,0 +1,39 @@
+.box-login {
+    border: 1px solid #ffbc04;
+    border-radius: 7px;
+    width: 450px;
+}
+
+.email-input {
+    background: transparent;
+    border: 1px solid #ffffff54;
+    border-radius: 7px;
+    transition: all 0.5s;
+    width: 100%;
+    color: #ffffffde;
+}
+
+.email-input::placeholder {
+    color: #ffffff54;
+}
+
+.email-input:focus-within {
+    border-color: #ffbc04;
+    outline: none;
+    color: #ffffffde;
+}
+
+.submit-btn {
+    background-color: #ffbc04;
+    color: black;
+}
+
+.submit-btn:hover {
+    background-color: #ffbc04;
+    color: black;
+    
+}
+
+.create-account {
+    color: #ffbc04;
+}

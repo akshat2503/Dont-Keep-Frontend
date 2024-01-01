@@ -1,0 +1,57 @@
+.sidebar {
+    position: fixed;
+}
+
+li::marker {
+    display: none;
+}
+
+.sidebar-item p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.active-sidebar {
+    background-color: #41331C;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.not-active-sidebar:hover {
+    background-color: #ffffff11;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.addNoteDiv {
+    width: 90%;
+}
+
+.addNoteInput {
+    border-radius: 7px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.addNoteInputSecond {
+    font-size: 14px;
+}
+
+.inputDivAddNote {
+    border: 1px solid #ffffff54;
+    box-shadow: 2px 2px 4px black;
+    background-color: transparent;
+    height: 20vh;
+}
+
+.addNoteInputFirst::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #ffffff7c;
+}
+
+.addNoteInputSecond::placeholder {
+    font-family: 'Roboto', sans-serif;
+    /* font-weight: 500; */
+    color: #ffffff7c;
+}
