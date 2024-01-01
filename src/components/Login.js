@@ -41,7 +41,7 @@ export default function Login() {
             <input type="password" className="email-input p-3" placeholder='Password' name='password' onChange={onChange} value={credentials.password} required />
           </div>
           <div className="d-flex align-items-center justify-content-between">
-            <a href="/register" className='nav-link create-account'>Create Account</a>
+            <a href="/#/register" className='nav-link create-account'>Create Account</a>
             <button type="submit" className="btn submit-btn">Submit</button>
           </div>
         </form>
