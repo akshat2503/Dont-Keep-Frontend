@@ -42,7 +42,7 @@ export default function Navbar(props) {
             </div> */}
             <div>
               <img height="24px" className='loadingGif me-3' src={loadingGif} alt="" />
-              <button className="btn btn-secondary mx-2" onClick={handleLogout}>Logout</button>
+              <button className="btn btn-secondary mx-2" onClick={handleLogout}>Sangeeta Gautam</button>
             </div>
           </div>
         </nav>
