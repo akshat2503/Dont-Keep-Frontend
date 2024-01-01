@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css'
 
 export default function Register() {
@@ -46,7 +46,7 @@ export default function Register() {
                         <input type="password" className="email-input p-3" name="password" placeholder='Password' onChange={onChange} value={credentials.password} required />
                     </div>
                     <div className="d-flex align-items-center justify-content-between">
-                        <a href="/login" className='nav-link create-account'>Login</a>
+                        <Link to="/login" className='nav-link create-account'>Login</Link>
                         <button type="submit" className="btn submit-btn">Create Account</button>
                     </div>
                 </form>

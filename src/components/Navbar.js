@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 import loadingGif from '../loadingGif-unscreen.gif'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Navbar() {
   let navigate = useNavigate();
@@ -21,7 +21,7 @@ export default function Navbar() {
                 </svg>
               </div>
               <img width="40px" src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png" alt="Logo" />
-              <a className="navbar-brand ms-2" href="/" style={{ fontFamily: "Roboto", fontWeight: "500", letterSpacing: "0.5px" }}>Don't Keep</a>
+              <Link className="navbar-brand ms-2" to="/" style={{ fontFamily: "Roboto", fontWeight: "500", letterSpacing: "0.5px" }}>Don't Keep</Link>
             </div>
             <div className='inputDiv d-flex align-items-center'>
               <div className="inputSvgDiv">
@@ -35,8 +35,6 @@ export default function Navbar() {
               <img height="24px" className='loadingGif me-3' src={loadingGif} alt="" />
               <button className="btn btn-secondary mx-2" onClick={handleLogout}>Logout</button>
             </div>
-            {/* <div> */}
-            {/* </div> */}
           </div>
         </nav>
       </div>
