@@ -5,18 +5,21 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export default function Navbar(props) {
   let navigate = useNavigate();
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     localStorage.removeItem('token');
     navigate("/login");
   }
-  const handleSvgCLick = ()=>{
-    if (props.sidebarVisible){
+  const handleSvgCLick = () => {
+    if (props.sidebarVisible) {
       props.setSidebarVisible(false);
       console.log(props.sidebarVisible)
     } else {
       props.setSidebarVisible(true);
       console.log(props.sidebarVisible)
     }
+  }
+  if (window.innerWidth < 768) {
+    props.setSidebarVisible(false);
   }
   return (
     <>
