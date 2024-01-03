@@ -27,10 +27,11 @@ export default function Notes(props) {
     }
     const handleAddNoteClick = async () => {
         handleAddNoteBlur();
-        console.log("Clicked with title:", title, "and content:", content);
+        props.setLoading(true);
         await addNote(title, content, '');
         setTitle('');
         setContent('');
+        props.setLoading(false);
     }
     return (
         <>
@@ -80,20 +81,20 @@ export default function Notes(props) {
                     </div>
                 </div>
                 <div className="d-flex flex-column" style={{ width: '100%' }}>
-                    <div className={`addNoteDiv ${window.innerWidth >=768? "mx-5 my-5":"my-3"}  d-flex justify-content-center`} style={{ height: `${isVisible ? "20vh" : "10vh"}`, width: `${window.innerWidth >= 768?"":"100%"}` }}>
-                        <div className="inputDiv inputDivAddNote py-1 px-3 d-flex flex-column" style={{ height: `${isVisible ? "20vh" : "10vh"}`, width: `${window.innerWidth >= 768? "":"90%"}` }}>
+                    <div className={`addNoteDiv ${window.innerWidth >= 768 ? "mx-5 my-5" : "my-3"}  d-flex justify-content-center`} style={{ height: `${isVisible ? "20vh" : "10vh"}`, width: `${window.innerWidth >= 768 ? "" : "100%"}` }}>
+                        <div className="inputDiv inputDivAddNote py-1 px-3 d-flex flex-column" style={{ height: `${isVisible ? "20vh" : "10vh"}`, width: `${window.innerWidth >= 768 ? "" : "90%"}` }}>
                             <button onClick={handleAddNoteBlur} type="button" className="btn-close btn-close-white my-1" style={{ alignSelf: 'flex-end', position: 'absolute', display: `${isVisible ? "block" : "none"}` }} aria-label="Close"></button>
                             <input value={title} onChange={(e) => setTitle(e.target.value)} onFocus={handleAddNoteFocus} className='addNoteInput addNoteInputFirst nav-input' type="text" placeholder={`${isVisible ? "Title" : "Take a note ..."}`} />
                             <input value={content} onChange={(e) => setContent(e.target.value)} onFocus={handleAddNoteFocus} style={{ display: `${isVisible ? "block" : "none"}` }} className='addNoteInput addNoteInputSecond nav-input' type="text" placeholder='Take a note ...' />
                             <button onClick={handleAddNoteClick} style={{ alignSelf: 'flex-end', display: `${isVisible ? "block" : "none"}` }} className="btn btn-secondary btn-sm mb-1">Submit</button>
                         </div>
                     </div>
-                    <div className='row justify-content-center' style={{ maxWidth: "100vw", margin: `${window.innerWidth>=768?"0rem 2rem":"0rem 1rem"}`, padding: `${window.innerWidth>=768?"0rem 6rem":"0rem 0rem"}` }}>
-                        
+                    <div className='row justify-content-center' style={{ maxWidth: "100vw", margin: `${window.innerWidth >= 768 ? "0rem 2rem" : "0rem 1rem"}`, padding: `${window.innerWidth >= 768 ? "0rem 6rem" : "0rem 0rem"}` }}>
+
                         {/* If no notes are present show a message */}
 
                         {notes.map((note) => {
-                            return <Noteitem key={note._id} note={note} />
+                            return <Noteitem setLoading={props.setLoading} key={note._id} note={note} />
                         })}
                     </div>
                 </div>

@@ -44,7 +44,7 @@ export default function Navbar(props) {
               <input className='nav-input' type="text" placeholder='Search' />
             </div> */}
             <div>
-              <img height="24px" className='loadingGif me-3' src={loadingGif} alt="" />
+              <img height="24px" className='loadingGif me-3' src={loadingGif} style={{opacity: `${props.loading?"1":"0"}`}} alt="" />
               <button className="btn btn-secondary mx-2" onClick={handleLogout}>Logout</button>
             </div>
           </div>

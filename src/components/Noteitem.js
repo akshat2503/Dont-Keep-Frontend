@@ -25,10 +25,10 @@ export default function Noteitem(props) {
     }
 
     const scheduleEditNote = () => {
-        // console.log(editedTitle);
-        // console.log(editedDescription);
+        props.setLoading(true);
         editNote(note._id, editedTitle, editedDescription);
         clearTimeout(timeoutRef.current);
+        props.setLoading(false);
     };
 
     return (
