@@ -34,8 +34,8 @@ export default function Notes(props) {
     return (
         <>
             <div className="d-flex">
-                <div className="plcc" style={{ height: '90vh', width: `${props.sidebarVisible ? '280px' : '80px'}`, flexShrink: "0" }}></div>
-                <div className="sidebar my-2" style={{ height: '90vh', width: `${props.sidebarVisible ? '280px' : '80px'}` }}>
+                <div className="plcc" style={{ height: '90vh', width: `${props.sidebarVisible ? '280px' : '70px'}`, flexShrink: "0" }}></div>
+                <div className="sidebar my-2" style={{ height: '90vh', width: `${props.sidebarVisible ? '280px' : '70px'}` }}>
                     <div className="sidebar-item d-flex my-1 align-items-center active-sidebar">
                         <div className="svgDiv ms-2">
                             <svg fill='#ffffffde'>

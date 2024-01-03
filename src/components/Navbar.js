@@ -27,7 +27,7 @@ export default function Navbar(props) {
         <nav className="navbar fixed-top">
           <div className="container-fluid d-flex justify-content-between">
             <div className='d-flex align-items-center'>
-              <div onClick={handleSvgCLick} className='svgDiv'>
+              <div onClick={handleSvgCLick} className='svgDiv navbarSvg'>
                 <svg fill="#FFFFFFDE">
                   <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
                 </svg>
