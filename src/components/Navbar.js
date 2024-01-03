@@ -15,10 +15,8 @@ export default function Navbar(props) {
   const handleSvgCLick = () => {
     if (props.sidebarVisible) {
       props.setSidebarVisible(false);
-      console.log(props.sidebarVisible)
     } else {
       props.setSidebarVisible(true);
-      console.log(props.sidebarVisible)
     }
   }
   return (

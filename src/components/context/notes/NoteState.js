@@ -16,7 +16,6 @@ const NoteState = (props) => {
             }
         });
         const json = await response.json();
-        console.log(json);
         setNotes(json.reverse());
     }
 
@@ -32,7 +31,6 @@ const NoteState = (props) => {
             body: JSON.stringify({title, description, tag})
         });
         const newNote = await response.json();
-        console.log(newNote);
         setNotes([newNote, ...notes]);
     }
 
@@ -45,7 +43,6 @@ const NoteState = (props) => {
             },
         });
         const json = response.json();
-        console.log(json)
         const newNotes = notes.filter((note) => { return note._id !== id });
         setNotes(newNotes);
     }
@@ -67,7 +64,6 @@ const NoteState = (props) => {
             }
         }
         const json = response.json();
-        console.log(json);
     }
     return (
         <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>
