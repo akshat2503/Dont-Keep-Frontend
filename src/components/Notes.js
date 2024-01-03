@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import noteContext from './context/notes/NoteContext'
 import Noteitem from './Noteitem';
-import './Notes.css'
 import { useNavigate } from 'react-router-dom';
+import './Notes.css'
 
 export default function Notes(props) {
     const context = useContext(noteContext);

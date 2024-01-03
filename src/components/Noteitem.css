@@ -33,3 +33,7 @@ p:focus-within{
 .card-text {
     font-size: 14px;
 }
+
+.Toastify__toast {
+    box-shadow: 0px 0px 7px #ffffff33;
+}

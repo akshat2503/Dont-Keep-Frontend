@@ -21,6 +21,11 @@ nav{
     cursor: pointer;
 }
 
+.svgDiv:hover {
+    background-color: #ffffff26;
+    border-radius: 25px;
+}
+
 svg {
     width: 24px;
     height: 24px;
@@ -46,7 +51,6 @@ svg {
 
 ::placeholder {
     color: #ffffffde;
-
 }
 
 .placeholder {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import loadingGif from '../loadingGif-unscreen.gif'
+// import loadingGif from '../loadingGif-unscreen.gif'
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function Navbar(props) {
