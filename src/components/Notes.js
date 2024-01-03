@@ -27,11 +27,9 @@ export default function Notes(props) {
     }
     const handleAddNoteClick = async () => {
         handleAddNoteBlur();
-        props.setLoading(true);
         await addNote(title, content, '');
         setTitle('');
         setContent('');
-        props.setLoading(false);
     }
     return (
         <>
@@ -94,7 +92,7 @@ export default function Notes(props) {
                         {/* If no notes are present show a message */}
 
                         {notes.map((note) => {
-                            return <Noteitem setLoading={props.setLoading} key={note._id} note={note} />
+                            return <Noteitem key={note._id} note={note} />
                         })}
                     </div>
                 </div>

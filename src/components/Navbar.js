@@ -35,6 +35,7 @@ export default function Navbar(props) {
               <img width="40px" src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png" alt="Logo" />
               <Link className="navbar-brand ms-2" to="/" style={{ fontFamily: "Roboto", fontWeight: "500", letterSpacing: "0.5px" }}>Don't Keep</Link>
             </div>
+            {/* Search bar below */}
             {/* <div className='inputDiv d-flex align-items-center'>
               <div className="inputSvgDiv">
                 <svg fill="#FFFFFFDE">
@@ -44,7 +45,8 @@ export default function Navbar(props) {
               <input className='nav-input' type="text" placeholder='Search' />
             </div> */}
             <div>
-              <img height="24px" className='loadingGif me-3' src={loadingGif} style={{opacity: `${props.loading?"1":"0"}`}} alt="" />
+              {/* Loading bar, Not needed currently */}
+              {/* <img height="24px" className='loadingGif me-3' src={loadingGif} alt="" />  */}
               <button className="btn btn-secondary mx-2" onClick={handleLogout}>Logout</button>
             </div>
           </div>

@@ -10,13 +10,12 @@ import Notes from './components/Notes';
 
 function App() {
   const [sidebarVisible, setSidebarVisible] = useState(true);
-  const [loading, setLoading] = useState(false);
   return (
     <>
       <NoteState>
         <Router>
           <Routes>
-            <Route exact path="/" element={<><Navbar loading={loading} sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} /><Notes loading={loading} setLoading={setLoading} setSidebarVisible={setSidebarVisible} sidebarVisible={sidebarVisible} /></>} />
+            <Route exact path="/" element={<><Navbar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} /><Notes setSidebarVisible={setSidebarVisible} sidebarVisible={sidebarVisible} /></>} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
           </Routes>
