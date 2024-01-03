@@ -9,6 +9,9 @@ export default function Navbar(props) {
     localStorage.removeItem('token');
     navigate("/login");
   }
+  if (window.innerWidth < 768) {
+    props.setSidebarVisible(false);
+  }
   const handleSvgCLick = () => {
     if (props.sidebarVisible) {
       props.setSidebarVisible(false);
@@ -17,9 +20,6 @@ export default function Navbar(props) {
       props.setSidebarVisible(true);
       console.log(props.sidebarVisible)
     }
-  }
-  if (window.innerWidth < 768) {
-    props.setSidebarVisible(false);
   }
   return (
     <>
