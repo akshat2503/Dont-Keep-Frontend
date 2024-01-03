@@ -79,8 +79,8 @@ export default function Notes(props) {
                     </div>
                 </div>
                 <div className="d-flex flex-column" style={{ width: '100%' }}>
-                    <div className={`addNoteDiv ${window.innerWidth >= 768 ? "mx-5 my-5" : "my-3"}  d-flex justify-content-center`} style={{ height: `${isVisible ? "20vh" : "10vh"}`, width: `${window.innerWidth >= 768 ? "" : "100%"}` }}>
-                        <div className="inputDiv inputDivAddNote py-1 px-3 d-flex flex-column" style={{ height: `${isVisible ? "20vh" : "10vh"}`, width: `${window.innerWidth >= 768 ? "" : "90%"}` }}>
+                    <div className={`addNoteDiv ${window.innerWidth >= 768 ? "mx-5 my-5" : "my-3"}  d-flex justify-content-center`} style={{ height: `${isVisible ? "20vh" : "8vh"}`, width: `${window.innerWidth >= 768 ? "" : "100%"}` }}>
+                        <div className="inputDiv inputDivAddNote py-1 px-3 d-flex flex-column" style={{ height: `${isVisible ? "20vh" : "8vh"}`, width: `${window.innerWidth >= 768 ? "" : "90%"}` }}>
                             <button onClick={handleAddNoteBlur} type="button" className="btn-close btn-close-white my-1" style={{ alignSelf: 'flex-end', position: 'absolute', display: `${isVisible ? "block" : "none"}` }} aria-label="Close"></button>
                             <input value={title} onChange={(e) => setTitle(e.target.value)} onFocus={handleAddNoteFocus} className='addNoteInput addNoteInputFirst nav-input' type="text" placeholder={`${isVisible ? "Title" : "Take a note ..."}`} />
                             <input value={content} onChange={(e) => setContent(e.target.value)} onFocus={handleAddNoteFocus} style={{ display: `${isVisible ? "block" : "none"}` }} className='addNoteInput addNoteInputSecond nav-input' type="text" placeholder='Take a note ...' />
