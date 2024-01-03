@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import noteContext from './context/notes/NoteContext'
 import Noteitem from './Noteitem';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Notes.css'
 
 export default function Notes(props) {
@@ -27,13 +29,18 @@ export default function Notes(props) {
     }
     const handleAddNoteClick = async () => {
         handleAddNoteBlur();
-        await addNote(title, content, '');
-        setTitle('');
-        setContent('');
+        if (title.length < 5) toast("Title must be atleast 5 characters !", { position: "bottom-left", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "dark", })
+        else if (content.length < 5) toast("Description must be atleast 5 characters !", { position: "bottom-left", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "dark", })
+        else {
+            await addNote(title, content, '');
+            setTitle('');
+            setContent('');
+        }
     }
     return (
         <>
             <div className="d-flex">
+                <ToastContainer />
                 <div className="plcc" style={{ height: '90vh', width: `${props.sidebarVisible ? '280px' : '70px'}`, flexShrink: "0" }}></div>
                 <div className="sidebar my-2" style={{ height: '90vh', width: `${props.sidebarVisible ? '280px' : '70px'}` }}>
                     <div className="sidebar-item d-flex my-1 align-items-center active-sidebar">
@@ -82,8 +89,8 @@ export default function Notes(props) {
                     <div className={`addNoteDiv ${window.innerWidth >= 768 ? "mx-5 my-5" : "my-3"}  d-flex justify-content-center`} style={{ height: `${isVisible ? "20vh" : "8vh"}`, width: `${window.innerWidth >= 768 ? "" : "100%"}` }}>
                         <div className="inputDiv inputDivAddNote py-1 px-3 d-flex flex-column" style={{ height: `${isVisible ? "20vh" : "8vh"}`, width: `${window.innerWidth >= 768 ? "" : "90%"}` }}>
                             <button onClick={handleAddNoteBlur} type="button" className="btn-close btn-close-white my-1" style={{ alignSelf: 'flex-end', position: 'absolute', display: `${isVisible ? "block" : "none"}` }} aria-label="Close"></button>
-                            <input value={title} onChange={(e) => setTitle(e.target.value)} onFocus={handleAddNoteFocus} className='addNoteInput addNoteInputFirst nav-input' type="text" placeholder={`${isVisible ? "Title" : "Take a note ..."}`} minLength={5} />
-                            <input value={content} onChange={(e) => setContent(e.target.value)} onFocus={handleAddNoteFocus} style={{ display: `${isVisible ? "block" : "none"}` }} className='addNoteInput addNoteInputSecond nav-input' type="text" placeholder='Take a note ...' minLength={5} />
+                            <input value={title} onChange={(e) => setTitle(e.target.value)} onFocus={handleAddNoteFocus} className='addNoteInput addNoteInputFirst nav-input' type="text" placeholder={`${isVisible ? "Title" : "Take a note ..."}`} />
+                            <input value={content} onChange={(e) => setContent(e.target.value)} onFocus={handleAddNoteFocus} style={{ display: `${isVisible ? "block" : "none"}` }} className='addNoteInput addNoteInputSecond nav-input' type="text" placeholder='Take a note ...' />
                             <button onClick={handleAddNoteClick} style={{ alignSelf: 'flex-end', display: `${isVisible ? "block" : "none"}` }} className="btn btn-secondary btn-sm mb-1">Submit</button>
                         </div>
                     </div>
