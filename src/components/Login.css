@@ -26,6 +26,7 @@
 .submit-btn {
     background-color: #ffbc04;
     color: black;
+    width: 5rem;
 }
 
 .submit-btn:hover {
