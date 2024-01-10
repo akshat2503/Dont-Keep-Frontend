@@ -4,6 +4,7 @@ import Noteitem from './Noteitem';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import notAvlSvg from './notAvl.svg'
 import './Notes.css'
 
 export default function Notes(props) {
@@ -35,7 +36,7 @@ export default function Notes(props) {
             await addNote(title, content, '');
             setTitle('');
             setContent('');
-        }   
+        }
     }
     return (
         <>
@@ -89,14 +90,17 @@ export default function Notes(props) {
                     <div className={`addNoteDiv ${window.innerWidth >= 768 ? "mx-5 my-5" : "my-3"}  d-flex justify-content-center`} style={{ height: `${isVisible ? "20vh" : "8vh"}`, width: `${window.innerWidth >= 768 ? "" : "100%"}` }}>
                         <div className="inputDiv inputDivAddNote py-1 px-3 d-flex flex-column" style={{ height: `${isVisible ? "20vh" : "8vh"}`, width: `${window.innerWidth >= 768 ? "" : "90%"}` }}>
                             <button onClick={handleAddNoteBlur} type="button" className="btn-close btn-close-white my-1" style={{ alignSelf: 'flex-end', position: 'absolute', display: `${isVisible ? "block" : "none"}` }} aria-label="Close"></button>
-                            <input value={title} onChange={(e) => setTitle(e.target.value)} onFocus={handleAddNoteFocus} className='addNoteInput addNoteInputFirst nav-input' type="text" placeholder={`${isVisible ? "Title" : "Take a note ..."}`} />
+                            <input value={title} onChange={(e) => setTitle(e.target.value)} onFocus={handleAddNoteFocus} className='addNoteInput addNoteInputFirst nav-input' type="text" placeholder={`${isVisible ? "Title" : "Take a note ..."}`} style={{ fontWeight: `${isVisible ? "500" : "normal"}` }} />
                             <input value={content} onChange={(e) => setContent(e.target.value)} onFocus={handleAddNoteFocus} style={{ display: `${isVisible ? "block" : "none"}` }} className='addNoteInput addNoteInputSecond nav-input' type="text" placeholder='Take a note ...' />
                             <button onClick={handleAddNoteClick} style={{ alignSelf: 'flex-end', display: `${isVisible ? "block" : "none"}` }} className="btn btn-secondary btn-sm mb-1">Submit</button>
                         </div>
                     </div>
                     <div className='row justify-content-center' style={{ maxWidth: "100vw", margin: `${window.innerWidth >= 768 ? "0rem 2rem" : "0rem 1rem"}`, padding: `${window.innerWidth >= 768 ? "0rem 6rem" : "0rem 0rem"}` }}>
 
-                        {/* If no notes are present show a message */}
+                        {notes.length === 0 ? (<div className="noNotesAvl text-center">
+                            <img className='mt-3' width="120px" src={notAvlSvg} alt="" style={{filter: "invert(1)", opacity: "0.3"}} />
+                            <p className='my-3' style={{fontSize: "1.75rem", fontWeight: "500", opacity: "0.5"}}>No notes to display.</p>
+                        </div>) : ""}
 
                         {notes.map((note) => {
                             return <Noteitem key={note._id} note={note} />
