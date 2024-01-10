@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import './Login.css'
 
 export default function Login() {
@@ -22,6 +23,8 @@ export default function Login() {
     if (json.success) {
       localStorage.setItem('token', json.authToken);
       navigate("/");
+    } else {
+      toast.error("Incorrect Credentials!", { position: "bottom-left", autoClose: 2000, hideProgressBar: true, closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined, theme: "dark", })
     }
   }
   const onChange = (e) => {
@@ -29,6 +32,7 @@ export default function Login() {
   }
   return (
     <div className='container d-flex flex-column align-items-center justify-content-center' style={{ height: '100vh' }}>
+      <ToastContainer />
       <div className="box-login p-5">
         <div className="top-text d-flex align-items-center flex-column">
           <h1 className='mb-4'>Don't Keep</h1>
@@ -45,8 +49,8 @@ export default function Login() {
           <div className="d-flex align-items-center justify-content-between">
             <Link to="/register" className='nav-link create-account'>Create Account</Link>
             <button type="submit" className="btn submit-btn">
-              <img width="20px" style={{display: `${loading? "": "none"}`}} src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca.gif" alt="" />
-              <p style={{margin: "0", display: `${loading? "none": ""}`}}>Submit</p>
+              <img width="20px" style={{ display: `${loading ? "" : "none"}` }} src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca.gif" alt="" />
+              <p style={{ margin: "0", display: `${loading ? "none" : ""}` }}>Login</p>
             </button>
           </div>
         </form>
