@@ -60,14 +60,14 @@ export default function Notes(props) {
                         </div>
                         <p style={{ display: `${props.sidebarVisible ? 'block' : 'none'}` }} className='ms-2'>Reminders</p>
                     </div>
-                    <div className="sidebar-item d-flex my-1 align-items-center not-active-sidebar">
+                    {/* <div className="sidebar-item d-flex my-1 align-items-center not-active-sidebar">
                         <div className="svgDiv ms-2">
                             <svg fill='#ffffffde'>
                                 <path d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z"></path>
                             </svg>
                         </div>
                         <p style={{ display: `${props.sidebarVisible ? 'block' : 'none'}` }} className='ms-2'>Edit Labels</p>
-                    </div>
+                    </div> */}
                     <div className="sidebar-item d-flex my-1 align-items-center not-active-sidebar">
                         <div className="svgDiv ms-2">
                             <svg fill='#ffffffde'>
