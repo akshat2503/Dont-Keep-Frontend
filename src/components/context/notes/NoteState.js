@@ -48,19 +48,21 @@ const NoteState = (props) => {
     }
 
     const editNote = async (id, title, description, tag) => {
+        const currentDate = new Date();
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: "PUT", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem('token')
             },
-            body: JSON.stringify({title, description, tag})
+            body: JSON.stringify({title, description, tag, date: currentDate.toISOString()})
         });
         for (let index=0; index<notes.length; index++){
             const element = notes[index];
             if (element._id === id){
                 notes[index].title = title;
                 notes[index].description = description;
+                notes[index].date = currentDate.toISOString();
             }
         }
         const json = response.json();

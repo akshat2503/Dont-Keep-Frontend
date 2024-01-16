@@ -48,13 +48,21 @@ export default function Noteitem(props) {
         clearTimeout(timeoutRef.current);
     };
 
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+
     return (
         <div className='col-lg-4 col-md-5 col-sm-6 my-3 card-wrapper' style={{ padding: "0px 4px" }}>
             <div className="card cardCss" onMouseEnter={() => { setIsHovered(true) }} onMouseLeave={() => { setIsHovered(false); }}>
                 <div className="card-body">
                     <h5 className="card-title" onInput={(e) => handleChange('title', e.currentTarget.innerText)} contentEditable="true" suppressContentEditableWarning={true} spellcheck="false">{note.title}</h5>
                     <p className="card-text" style={{ whiteSpace: 'pre-wrap' }} onInput={(e) => handleChange('description', e.currentTarget.innerText)} contentEditable="true" suppressContentEditableWarning={true} spellcheck="false">{note.description}</p>
-                    <i className="fa-regular fa-trash-can mt-3 me-3" style={{ opacity: `${isHovered ? "1" : "0"}`, transition: 'all 0.3s' }} onClick={handleDelete}></i>
+                    <div className='mt-3' style={{display: 'flex', alignItems: 'center'}}>
+                        <i className="fa-regular fa-trash-can ms-2 me-3 my-2" style={{display: 'inline', opacity: `${isHovered ? "1" : "0"}`, transition: 'all 0.3s' }} onClick={handleDelete}></i>
+                        <p style={{ fontSize: '10px', margin: '0', opacity: `${isHovered ? "1" : "0"}`}}>Last edited on: {formatDate(note.date)}</p>
+                    </div>
                     <ToastContainer />
                 </div>
             </div>
