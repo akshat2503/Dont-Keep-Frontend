@@ -33,9 +33,9 @@ export default function Register() {
     }
 
     return (
-        <div className='container d-flex flex-column align-items-center justify-content-center' style={{ height: '100vh' }}>
+        <div className='container d-flex flex-column align-items-center justify-content-center' style={{ height: `${window.innerWidth>768?'100vh':'90vh'}`, maxWidth: '100vw' }}>
             <ToastContainer />
-            <div className="box-login p-5">
+            <div className={`box-login ${window.innerWidth>768?'p-5':'p-4'}`} style={{width: `${window.innerWidth>768 ? '27rem': '22rem'}`}}>
                 <div className="top-text d-flex align-items-center flex-column">
                     <h1 className='mb-3'>Don't Keep</h1>
                     <h3 className='mb-2'>Create Account</h3>
